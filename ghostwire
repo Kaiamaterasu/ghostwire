@@ -1,0 +1,76 @@
+#!/usr/bin/env python3
+"""
+Ghostwire - Main executable entry point
+Command-line only P2P encrypted communication tool
+"""
+
+import sys
+import os
+
+# Add the src directory to Python path
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
+
+def main():
+    # Check if --help-all is in arguments first
+    if '--help-all' in sys.argv:
+        print("Ghostwire - Available Components:")
+        print("  default             : Command-line only communication (recommended)")
+        print("  --version v1        : Original implementation")
+        print("  --version v2        : Daemon version")
+        print("  --version chat      : Interactive chat system")
+        print("  --version broadcast : Broadcast server implementation")
+        print("  --version steganography : Hide/extract messages in images")
+        print("\nUse --version <component> --help for specific component help")
+        print("\nSteganography Quick Commands:")
+        print("  ./ghostwire --stealth-image image.jpg --message \"text\" --output stealth.png")
+        print("  ./ghostwire --stealth-extract stealth.png")
+        return
+    
+    # Check for steganography commands first
+    stealth_commands = ['--stealth-image', '--stealth-extract', '--stealth-capacity']
+    if any(cmd in sys.argv for cmd in stealth_commands):
+        from ghostwire_steganography import main as stego_main
+        stego_main()
+        return
+    
+    # Determine which version to use
+    version = 'simple'  # default to simple command-line version
+    remaining_args = sys.argv[1:]  # all args except script name
+    
+    if '--version' in sys.argv:
+        version_index = sys.argv.index('--version')
+        if version_index + 1 < len(sys.argv):
+            version = sys.argv[version_index + 1]
+            # Remove --version and its value from remaining args
+            remaining_args = [arg for i, arg in enumerate(sys.argv[1:], 1) 
+                            if i != version_index and i != version_index + 1]
+    
+    # Import and run the selected version
+    if version == 'simple':
+        from ghostwire_simple import main as simple_main
+        # Replace sys.argv to pass remaining args to the module
+        sys.argv = ['ghostwire'] + remaining_args
+        simple_main()
+    elif version == 'v1':
+        from ghostwire import main as ghostwire_main
+        sys.argv = ['ghostwire'] + remaining_args
+        ghostwire_main()
+    elif version == 'v2':
+        from ghostwire2 import main as ghostwire2_main
+        sys.argv = ['ghostwire2'] + remaining_args
+        ghostwire2_main()
+    elif version == 'chat':
+        from ghostwire_chat import main as chat_main
+        print("Starting Ghostwire Chat System...")
+        chat_main()
+    elif version == 'broadcast':
+        from ghostwire_broadcast import main as broadcast_main
+        print("Starting Ghostwire Broadcast Server...")
+        broadcast_main()
+    else:
+        print(f"Unknown version: {version}")
+        print("Available versions: simple (default), v1, v2, chat, broadcast")
+
+if __name__ == '__main__':
+    main()
+

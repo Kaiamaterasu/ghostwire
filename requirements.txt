@@ -1,0 +1,22 @@
+# Ghostwire Dependencies
+
+# Core cryptographic library
+pycryptodome>=3.15.0
+
+# Image processing for steganography
+Pillow>=8.0.0
+
+# Optional: For enhanced networking
+# requests>=2.25.0
+
+# Optional: For JSON handling (built-in but explicit version)
+# json>=2.0.9
+
+# Optional: For advanced CLI features
+# argparse>=1.4.0
+
+# Development dependencies (uncomment if needed)
+# pytest>=6.0.0
+# black>=21.0.0
+# flake8>=3.8.0
+

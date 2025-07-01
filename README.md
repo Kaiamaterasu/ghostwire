@@ -1,22 +1,30 @@
-# 👻 Ghostwire 🔒 - Secure P2P Communication Suite
+# 👻 Ghostwire - Secure P2P Communication Suite
+
+<div align="center">
 
 ![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
 ![Python](https://img.shields.io/badge/python-3.7+-green.svg)
 ![License](https://img.shields.io/badge/license-MIT-yellow.svg)
 ![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey.svg)
-![Network](https://img.shields.io/badge/network-P2P%20%7C%20LAN%20%7C%20Internet-orange.svg)
 
-**Ultimate Encrypted Communication Tool** - Connect friends worldwide with military-grade encryption! Features interactive chat, CLI commands, daemon mode, steganography, and broadcast messaging. Perfect for secure team communication, private conversations, and covert information sharing.
+**🔒 Ultimate Encrypted Communication Tool**
 
-## 🌟 Features
+Connect friends worldwide with military-grade encryption! Features interactive chat, CLI commands, daemon mode, steganography, and broadcast messaging.
 
-- 🌍 **Global Connectivity**: Works across different countries, networks, and WiFi connections
-- 🔐 **Triple-Key Security**: Triple encryption for complete protection
-- 🖼️ **Advanced Steganography**: Hide messages in images for secret communication
-- 💬 **Real-time Chat & Messaging**: Group and private messaging with no logs
-- 🌐 **Cross-Platform & Versatile**: Use it on Windows, Mac, Linux, and across multiple modes (CLI, interactive, daemon)
-- 🚀 **High Performance**: Capable of handling 100+ users efficiently
-- 🤝 **Seamless Team Communication**: Perfect for team coordination, secure meetings, and sharing sensitive information
+[🚀 Quick Start](#-quick-start) • [📖 Documentation](#-documentation) • [🌍 International Setup](#-international-setup) • [🖼️ Steganography](#-steganography)
+
+</div>
+
+---
+
+## ✨ Features
+
+🌍 **Global Connectivity** - Works across different countries, networks, and WiFi connections  
+🔐 **Triple-Key Security** - Military-grade AES encryption with triple-key authentication  
+🖼️ **Advanced Steganography** - Hide secret messages inside innocent-looking images  
+💬 **Real-time Chat** - Interactive chat rooms with private messaging support  
+🌐 **Cross-Platform** - Windows, macOS, Linux compatible with multiple operation modes  
+🚀 **High Performance** - Handles 100+ users efficiently with daemon mode support
 
 ## 🚀 Installation
 
@@ -184,17 +192,14 @@ Commands:
 # Output: 📊 Image capacity: 15000 characters
 ```
 
-## 🔧 Advanced Operation Modes
+## 🔧 Advanced Features
 
-### Multiple System Versions
+### Multiple Operation Modes
 ```bash
 # Show all available modes
 ./ghostwire --help-all
 
-# Use original version (v1)
-./ghostwire --version v1 --enable --key1 k1 --key2 k2 --key3 k3 --alias "room"
-
-# Use daemon version (v2) - pure CLI, no interactive
+# Use daemon version for background operation
 ./ghostwire --version v2 --enable --key1 k1 --key2 k2 --key3 k3 --alias "room"
 
 # Use interactive chat system
@@ -202,21 +207,6 @@ Commands:
 
 # Use broadcast server
 ./ghostwire --version broadcast
-
-# Use simple/default (recommended)
-./ghostwire --version simple
-```
-
-### Daemon Mode (v2) - Background Operation
-```bash
-# Start daemon server
-./ghostwire --version v2 --enable --key1 k1 --key2 k2 --key3 k3 --alias "daemon-room"
-
-# Send via daemon (different terminal)
-./ghostwire --version v2 --send "Background message" --create-user "admin" --all
-
-# List users via daemon
-./ghostwire --version v2 --list-all
 ```
 
 ## 🌍 Real-World Usage Examples
@@ -716,7 +706,7 @@ iperf3 -c SERVER_IP
 - **Regular Updates**: Change keys periodically
 
 
-## 🧪 Testing  26 Development
+## 🧪 Testing �26 Development
 
 ### Run Tests
 ```bash
